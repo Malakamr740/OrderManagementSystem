@@ -2823,11 +2823,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderCore\\OrderCore.csproj",
+      "projectUniqueName": "D:\\OrderManagementSystem\\OrderCore\\OrderCore.csproj",
       "projectName": "OrderCore",
-      "projectPath": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderCore\\OrderCore.csproj",
+      "projectPath": "D:\\OrderManagementSystem\\OrderCore\\OrderCore.csproj",
       "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderCore\\obj\\",
+      "outputPath": "D:\\OrderManagementSystem\\OrderCore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2845,8 +2845,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderBase\\OrderBase.csproj": {
-              "projectPath": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderBase\\OrderBase.csproj"
+            "D:\\OrderManagementSystem\\OrderBase\\OrderBase.csproj": {
+              "projectPath": "D:\\OrderManagementSystem\\OrderBase\\OrderBase.csproj"
             }
           }
         }

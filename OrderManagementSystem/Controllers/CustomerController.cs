@@ -22,48 +22,51 @@ namespace OrderManagementSystem.Controllers
 
 
         [HttpPost]
-        public async Task<BaseResponse> Register([FromBody]CustomerRequestVM addedCustomer) 
+        public async Task<IActionResult> Register([FromBody]CustomerRequestVM addedCustomer) 
         {
             var customer = addedCustomer.Adapt<CustomerRequestDTO>();
             var results = await _customerValidator.ValidateAsync(customer);
 
                 if (results.IsValid)
                 {
-                        var customerDTO = await _customerService.Register(customer);
-                        var customerResponseVM = customerDTO.Adapt<CustomerResponseVM>();
+                    var customerDTO = await _customerService.Register(customer);
+                    var customerResponseVM = customerDTO.Adapt<CustomerResponseVM>();
 
-                        if (customerResponseVM != null)
+                    if (customerResponseVM != null)
+                    {
+                        SuccessResponse<CustomerResponseVM> successResponse = new SuccessResponse<CustomerResponseVM>()
                         {
-                            return new SuccessResponse<CustomerResponseVM>
-                            {
-                                StatusCode = 200,
-                                Message = ("Customer Added Successfully"),
-                                Data = customerResponseVM
-                            };
-                        }
-                        else
+                            StatusCode = 200,
+                            Message = ("Customer Added Successfully"),
+                            Data = customerResponseVM
+                        };
+                           return Ok(successResponse);
+                    }
+                    else
+                    {
+                        BaseResponse errorResponse = new BaseResponse()
                         {
-                            return new BaseResponse
-                            {
-                                StatusCode = 400,
-                                Message = ("Cannot use an already registered email"),
-                            };
-                        }
+                            StatusCode = 400,
+                            Message = ("Cannot use an already registered email")
+                        };
+                        return BadRequest(errorResponse);
+                    }
                 } 
                 else 
                 {
-                    return new ErrorResponse
-                    {
+                    ErrorResponse errorResponse = new ErrorResponse() {
                         StatusCode = 400,
                         Message = ("Invalid Customer Data"),
                         Errors = results.Errors
                     };
-                }
+                    return BadRequest(errorResponse);
+
+            }
         }
 
 
         [HttpPost]
-        public async Task<BaseResponse> Login(string email, string password)
+        public async Task<IActionResult> Login(string email, string password)
         {
             var customerDTO = await _customerService.ValidateEmail(email);
             var customerRequestDTO = customerDTO.Adapt<CustomerRequestDTO>();
@@ -75,31 +78,32 @@ namespace OrderManagementSystem.Controllers
 
                 if (customerAuthentication == true)
                 {
-                    return new SuccessResponse<CustomerResponseVM>
+                    SuccessResponse < CustomerResponseVM > successResponse = new SuccessResponse<CustomerResponseVM>()
                     {
                         StatusCode = 200,
                         Message = ("Logged In Successfully"),
                         Data = customerResponseVM
                     };
+
+
+                    return Ok(successResponse);
                 }
                 else
                 {
-                    return new ErrorResponse
+                    BaseResponse errorResponse = new BaseResponse()
                     {
                         StatusCode = 400,
                         Message = ("Incorrect Password"),
-                        Errors = { }
                     };
+                    return  BadRequest(errorResponse);
                 }
-
             }
             else {
-                return new ErrorResponse
-                {
+                BaseResponse errorResponse = new BaseResponse() {
                     StatusCode = 404,
                     Message = ("No Existing Account With This Email"),
-                    Errors = { }
                 };
+                    return NotFound(errorResponse);
 
             }
 

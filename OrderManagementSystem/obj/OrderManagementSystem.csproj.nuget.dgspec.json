@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderManagementSystem\\OrderManagementSystem.csproj": {}
+    "D:\\OrderManagementSystem\\OrderManagementSystem\\OrderManagementSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderBase\\OrderBase.csproj": {
+    "D:\\OrderManagementSystem\\OrderBase\\OrderBase.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderBase\\OrderBase.csproj",
+        "projectUniqueName": "D:\\OrderManagementSystem\\OrderBase\\OrderBase.csproj",
         "projectName": "OrderBase",
-        "projectPath": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderBase\\OrderBase.csproj",
+        "projectPath": "D:\\OrderManagementSystem\\OrderBase\\OrderBase.csproj",
         "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderBase\\obj\\",
+        "outputPath": "D:\\OrderManagementSystem\\OrderBase\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -91,14 +91,14 @@
         }
       }
     },
-    "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderCore\\OrderCore.csproj": {
+    "D:\\OrderManagementSystem\\OrderCore\\OrderCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderCore\\OrderCore.csproj",
+        "projectUniqueName": "D:\\OrderManagementSystem\\OrderCore\\OrderCore.csproj",
         "projectName": "OrderCore",
-        "projectPath": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderCore\\OrderCore.csproj",
+        "projectPath": "D:\\OrderManagementSystem\\OrderCore\\OrderCore.csproj",
         "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderCore\\obj\\",
+        "outputPath": "D:\\OrderManagementSystem\\OrderCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -116,8 +116,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderBase\\OrderBase.csproj": {
-                "projectPath": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderBase\\OrderBase.csproj"
+              "D:\\OrderManagementSystem\\OrderBase\\OrderBase.csproj": {
+                "projectPath": "D:\\OrderManagementSystem\\OrderBase\\OrderBase.csproj"
               }
             }
           }
@@ -162,14 +162,14 @@
         }
       }
     },
-    "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderManagementSystem\\OrderManagementSystem.csproj": {
+    "D:\\OrderManagementSystem\\OrderManagementSystem\\OrderManagementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderManagementSystem\\OrderManagementSystem.csproj",
+        "projectUniqueName": "D:\\OrderManagementSystem\\OrderManagementSystem\\OrderManagementSystem.csproj",
         "projectName": "OrderManagementSystem",
-        "projectPath": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderManagementSystem\\OrderManagementSystem.csproj",
+        "projectPath": "D:\\OrderManagementSystem\\OrderManagementSystem\\OrderManagementSystem.csproj",
         "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderManagementSystem\\obj\\",
+        "outputPath": "D:\\OrderManagementSystem\\OrderManagementSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -187,11 +187,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderCore\\OrderCore.csproj": {
-                "projectPath": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderCore\\OrderCore.csproj"
+              "D:\\OrderManagementSystem\\OrderCore\\OrderCore.csproj": {
+                "projectPath": "D:\\OrderManagementSystem\\OrderCore\\OrderCore.csproj"
               },
-              "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\RunTime\\RunTime.csproj": {
-                "projectPath": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\RunTime\\RunTime.csproj"
+              "D:\\OrderManagementSystem\\RunTime\\RunTime.csproj": {
+                "projectPath": "D:\\OrderManagementSystem\\RunTime\\RunTime.csproj"
               }
             }
           }
@@ -271,14 +271,14 @@
         }
       }
     },
-    "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\RunTime\\RunTime.csproj": {
+    "D:\\OrderManagementSystem\\RunTime\\RunTime.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\RunTime\\RunTime.csproj",
+        "projectUniqueName": "D:\\OrderManagementSystem\\RunTime\\RunTime.csproj",
         "projectName": "RunTime",
-        "projectPath": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\RunTime\\RunTime.csproj",
+        "projectPath": "D:\\OrderManagementSystem\\RunTime\\RunTime.csproj",
         "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\RunTime\\obj\\",
+        "outputPath": "D:\\OrderManagementSystem\\RunTime\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -296,11 +296,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderBase\\OrderBase.csproj": {
-                "projectPath": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderBase\\OrderBase.csproj"
+              "D:\\OrderManagementSystem\\OrderBase\\OrderBase.csproj": {
+                "projectPath": "D:\\OrderManagementSystem\\OrderBase\\OrderBase.csproj"
               },
-              "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderCore\\OrderCore.csproj": {
-                "projectPath": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderCore\\OrderCore.csproj"
+              "D:\\OrderManagementSystem\\OrderCore\\OrderCore.csproj": {
+                "projectPath": "D:\\OrderManagementSystem\\OrderCore\\OrderCore.csproj"
               }
             }
           }

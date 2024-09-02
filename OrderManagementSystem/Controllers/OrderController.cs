@@ -23,7 +23,7 @@ namespace OrderManagementSystem.Controllers
         }
 
         [HttpPost]
-        public async Task<BaseResponse> AddOrder([FromBody]OrderRequestVM addedOrder)
+        public async Task<IActionResult> AddOrder([FromBody]OrderRequestVM addedOrder)
         {
             var order = addedOrder.Adapt<OrderRequestDTO>();
             var results = _orderValidator.Validate(order);
@@ -35,36 +35,38 @@ namespace OrderManagementSystem.Controllers
 
                 if (result != null)
                 {
-                    return new SuccessResponse<OrderResponseVM>
-                    {
+                    SuccessResponse<OrderResponseVM> successResponse = new SuccessResponse<OrderResponseVM>() {
                         StatusCode = 200,
                         Message = "Order Added Successfully",
                         Data = orderResponseVM
                     };
+
+                    return Ok(successResponse);
                 }
                 else 
                 {
-                    return new ErrorResponse
-                    {
+                    BaseResponse baseResponse = new BaseResponse() {
                         StatusCode = 400,
-                        Message = "Can't Add Order",
+                        Message = "Can't Add Order"
                     };
+                    return BadRequest(baseResponse);
                 }
             }
             else 
             {
-                return new ErrorResponse
+                ErrorResponse errorResponse = new ErrorResponse()
                 {
                     StatusCode = 400,
                     Message = "Invalid Order Data",
                     Errors = results.Errors
                 };
+                return BadRequest(errorResponse);
             }
         }
 
 
         [HttpGet]
-        public async Task<BaseResponse> GetAllOrdersByCustomerId(Guid id)
+        public async Task<IActionResult> GetAllOrdersByCustomerId(Guid id)
         {
             if (id != Guid.Empty)
             {
@@ -73,36 +75,36 @@ namespace OrderManagementSystem.Controllers
 
                 if (result != null)
                 {
-                    return new SuccessResponse<OrderRequestVM>
-                    {
+                    SuccessResponse<OrderRequestVM> successResponse = new SuccessResponse<OrderRequestVM>() {
                         StatusCode = 200,
                         Message = "Orders Retrieved Successfully",
                         Data = orderVM
                     };
+
+                    return Ok(successResponse);
                 }
                 else 
                 {
-                    return new ErrorResponse
-                    {
-                        StatusCode = 200,
+                    BaseResponse baseResponse = new BaseResponse() {
+                        StatusCode = 400,
                         Message = "Invalid Id"
-
                     };
+                    return BadRequest(baseResponse);
                 }
             }
             else
-            { 
-                return new ErrorResponse
-                {
+            {
+                BaseResponse baseResponse = new BaseResponse() {
                     StatusCode = 400,
                     Message = "Can't Retrieve Orders"
                 };
+                return BadRequest(baseResponse);
             }
         }
 
 
         [HttpDelete]
-        public async Task<BaseResponse> DeleteOrder(Guid id)
+        public async Task<IActionResult> DeleteOrder(Guid id)
         {
             if (id != Guid.Empty)
             {
@@ -111,27 +113,30 @@ namespace OrderManagementSystem.Controllers
 
                 if (result == true)
                 {
-                    return new SuccessResponse<OrderRequestVM>
-                    {
+                    SuccessResponse<OrderRequestVM> successResponse = new SuccessResponse<OrderRequestVM>() {
                         StatusCode = 200,
-                        Message = "Order Deleted successfully",
+                        Message = "Order Deleted successfully"
+
                     };
+                    return Ok(successResponse);
                 }
                 else
                 {
-                    return new ErrorResponse
-                    {
+                    BaseResponse baseResponse = new BaseResponse() {
+                    
                         StatusCode = 400,
                         Message = "Failed To Delete Order",
                     };
+                    return BadRequest(baseResponse);
                 }
             }
             else {
-                return new ErrorResponse
-                {
+                BaseResponse baseResponse = new BaseResponse() {
+                
                     StatusCode = 404,
                     Message = "Invalid Order Id",
                 };
+                return NotFound(baseResponse);
             }
             
         }

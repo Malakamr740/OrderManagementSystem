@@ -4162,11 +4162,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderBase\\OrderBase.csproj",
+      "projectUniqueName": "D:\\OrderManagementSystem\\OrderBase\\OrderBase.csproj",
       "projectName": "OrderBase",
-      "projectPath": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderBase\\OrderBase.csproj",
+      "projectPath": "D:\\OrderManagementSystem\\OrderBase\\OrderBase.csproj",
       "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pc\\source\\repos\\OrderManagementSystem\\OrderBase\\obj\\",
+      "outputPath": "D:\\OrderManagementSystem\\OrderBase\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",

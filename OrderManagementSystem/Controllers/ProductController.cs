@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Mapster;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using OrderBase.Entities;
@@ -8,7 +9,7 @@ using OrderCore.Interfaces;
 using OrderManagementSystem.Responses;
 using OrderManagementSystem.ViewModels;
 using OrderManagementSystem.ViewModels.Request;
-using OrderManagementSystem.ViewModels.Response;
+using System.Collections.Generic;
 
 namespace OrderManagementSystem.Controllers
 {
@@ -26,7 +27,7 @@ namespace OrderManagementSystem.Controllers
         }
 
         [HttpPost]
-        public async Task<BaseResponse> AddProduct([FromBody]ProductVM addedProduct) {
+        public async Task<IActionResult> AddProduct([FromBody]ProductVM addedProduct) {
 
             var product = addedProduct.Adapt<ProductDTO>();
             var results = _validator.Validate(product);
@@ -38,74 +39,74 @@ namespace OrderManagementSystem.Controllers
 
                 if (productDTO != null)
                 {
-                    return new SuccessResponse<ProductResponseVM>
-                    {
+                    SuccessResponse<ProductResponseVM> successResponse = new SuccessResponse<ProductResponseVM>() {
                         StatusCode = 200,
                         Message = "Product Added Successfully",
                         Data = productResponseVM
                     };
+                    return Ok(successResponse);
                 }
                 else
                 {
-                    return new BaseResponse
+                    BaseResponse baseResponse =  new BaseResponse()
                     {
                         StatusCode = 400,
                         Message = "Can't Add Product",
-                        
                     };
+                    return BadRequest(baseResponse);
                 }
             }
             else
             {
-                return new ErrorResponse
+                 ErrorResponse errorResponse = new ErrorResponse()
                 {
                     StatusCode = 400,
                     Message = "Invalid Product Data",
                     Errors = results.Errors
-
                 };
+                return BadRequest(errorResponse);
             }
         }
 
 
         [HttpDelete]
-        public async Task<BaseResponse> DeleteProduct(Guid id)
+        public async Task<IActionResult> DeleteProduct(Guid id)
         {
             if (id != Guid.Empty)
             {
                var result = await _productService.DeleteProduct(id);
                 if (result !=null)
                 {
-                    return new BaseResponse
+                    BaseResponse baseResponse = new BaseResponse()
                     {
                         StatusCode = 200,
                         Message = "Product Deleted Successfully"
-                        
                     };
+                    return Ok(baseResponse);
                 }
                 else {
-                    return new BaseResponse
+                    BaseResponse baseResponse = new BaseResponse()
                     {
                         StatusCode = 404,
                         Message = "Can't Delete Product"
-
                     };
+                    return NotFound(baseResponse);
                 }
             }
             else
             {
-                return new BaseResponse
+                BaseResponse baseResponse =  new BaseResponse()
                 {
                     StatusCode = 400,
                     Message = "Invalid Product ID",
                 };
-
+                return BadRequest(baseResponse);
             }
         }
 
 
         [HttpPut]
-        public async Task<BaseResponse> UpdateProduct(Guid id, [FromBody]ProductVM updatedProduct)
+        public async Task<IActionResult> UpdateProduct(Guid id, [FromBody]ProductVM updatedProduct)
         {
             var product = updatedProduct.Adapt<ProductDTO>();
             var results = _validator.Validate(product);
@@ -116,37 +117,39 @@ namespace OrderManagementSystem.Controllers
                     if (result !=null )
                     {
                     var productResponseVM = result.Adapt<ProductResponseVM>();
-                    return new SuccessResponse<ProductResponseVM>
+                    SuccessResponse<ProductResponseVM> successResponse = new SuccessResponse<ProductResponseVM>
                     {
                         StatusCode = 200,
                         Message = "Product Updated Successfully",
                         Data = productResponseVM
-
                     };
+                    return Ok(successResponse);
                     }
                     else 
                     {
-                        return new BaseResponse
+                        BaseResponse baseResponse =  new BaseResponse()
                         {
                             StatusCode = 400,
                             Message = "Failed To Update The Product",
                         };
+                        return BadRequest(baseResponse);
                     }
                 }
                 else
                 {
-                    return new ErrorResponse
+                    ErrorResponse errorResponse =  new ErrorResponse()
                     {
                         StatusCode = 400,
                         Message = "Invalid Product Data",
                         Errors = results.Errors
                     };
+                return BadRequest(errorResponse);
                 }
         }
            
         
         [HttpGet]
-        public async Task<BaseResponse> GetProductById(Guid id)
+        public async Task<IActionResult> GetProductById(Guid id)
         {
             if (id != Guid.Empty)
             {
@@ -154,35 +157,37 @@ namespace OrderManagementSystem.Controllers
                 if (product != null)
                 {
                     var productResponseVM = product.Adapt<ProductResponseVM>();
-                    return new SuccessResponse<ProductResponseVM>
+                    SuccessResponse < ProductResponseVM > successResponse  = new SuccessResponse<ProductResponseVM>()
                     {
                         StatusCode = 200,
                         Message = "Product Retrieved Successfully",
                         Data = productResponseVM
                     };
+                    return Ok(successResponse);
                 }
                 else {
-                    return new BaseResponse
+                     BaseResponse baseResponse =  new BaseResponse()
                     {
                         StatusCode = 404,
-                        Message = "Product Not Found",
+                        Message = "Product Not Found"
                     };
-
+                    return NotFound(baseResponse);
                 }
             }
             else
             {
-                return new ErrorResponse
+                ErrorResponse errorResponse = new ErrorResponse
                 {
                     StatusCode = 404,
                     Message = "Product Not Found"
                 };
+                return NotFound(errorResponse);
             }
 
         }
 
         [HttpGet]
-        public async Task<BaseResponse> GetAllInStockProducts()
+        public async Task<IActionResult> GetAllInStockProducts()
         {
 
             List<Product> products = await _productService.GetAllInStockProducts();
@@ -190,24 +195,26 @@ namespace OrderManagementSystem.Controllers
 
             if (!products.IsNullOrEmpty())
             {
-                return new SuccessResponse<ProductVM>
+                SuccessResponse<ProductVM> successResponse = new SuccessResponse<ProductVM>()
                 {
                     StatusCode = 200,
                     Data = productVM
                 };
+                return Ok(successResponse);
             }
             else
             {
-                return new ErrorResponse
+                BaseResponse baseResponse = new BaseResponse()
                 {
-                    StatusCode = 200,
+                    StatusCode = 404,
                     Message = "No Products in Stock"
-                }; 
+                };
+                return NotFound(baseResponse);
             }
         }
 
         [HttpGet]
-        public async Task<BaseResponse> GetAllProducts(Guid customerId)
+        public async Task<IActionResult> GetAllProducts(Guid customerId)
         {
             if (customerId != Guid.Empty)
             {
@@ -218,59 +225,65 @@ namespace OrderManagementSystem.Controllers
                     if (products.Count > 0)
                     {
                         var productResponseVM = products.Adapt<List<ProductResponseVM>>();
-                        return new SuccessResponse<List<ProductResponseVM>>
+                        SuccessResponse <List<ProductResponseVM>> successResponse = new SuccessResponse<List<ProductResponseVM>>
                         {
                             StatusCode = 200,
                             Message = "Products Retrieved Successfully",
                             Data = productResponseVM
                         };
+                        return Ok(productResponseVM);
                     }
                     else {
-                        return new BaseResponse
+                        BaseResponse baseResponse = new BaseResponse()
                         {
-                            StatusCode = 200,
+                            StatusCode = 404,
                             Message = "No Products Found To Retrieve"
                         };
+                        return NotFound(baseResponse);
                     }
                 }
                 else
                 {
-                    return new BaseResponse
+                    BaseResponse baseResponse = new BaseResponse()
                     {
                         StatusCode = 400,
                         Message = "Can't Retrieve Products"
                     };
+                    return NotFound(baseResponse);
                 }
             }
             else {
-                return new BaseResponse
+                BaseResponse baseResponse = new BaseResponse()
                 {
                     StatusCode = 400,
                     Message = "Invalid Customer Id"
                 };
+                return BadRequest(baseResponse);
             }
         }
         [HttpGet]
-        public async Task<BaseResponse> GetProductsByType(string productType)
+        public async Task<IActionResult> GetProductsByType(string productType)
         {
             List<Product> products = await _productService.GetProductByType(productType);
             var productVM = products.Adapt<ProductVM>();
 
             if (!products.IsNullOrEmpty())
             {
-                return new SuccessResponse<ProductVM>
+                SuccessResponse < ProductVM > successResponse =  new SuccessResponse<ProductVM>()
                 {
                     StatusCode = 200,
                     Data = productVM
                 };
+                return Ok(successResponse);
             }
             else
             {
-                return new ErrorResponse
+                BaseResponse baseRespone =  new BaseResponse()
                 {
                     StatusCode = 400,
                     Message = "Failed To Filter Products By Type"
                 };
+                return BadRequest(baseRespone);
             }
         }
     }
