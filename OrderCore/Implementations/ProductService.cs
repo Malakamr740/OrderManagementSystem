@@ -11,11 +11,11 @@ namespace OrderCore.Implementations
     {
         private readonly IProductRepository _productRepository;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ICustomerRepository _customerRepository;
-        public ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork , ICustomerRepository customerRepository)
+        private readonly ICustomerService _customerService;
+        public ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork , ICustomerService customerService)
         {
             _productRepository = productRepository;
-            _customerRepository = customerRepository;
+            _customerService = customerService;
             _unitOfWork = unitOfWork;
         }
 
@@ -64,7 +64,7 @@ namespace OrderCore.Implementations
 
         public async Task<List<ProductResponseDTO>> GetAllProducts(Guid customerId)
         {
-            Customer customer = await _customerRepository.GetCustomerById(customerId);
+            var customer = await _customerService.GetCustomerById(customerId);
             
             if (customer.IsAdmin == true)
             {

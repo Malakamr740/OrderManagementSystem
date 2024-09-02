@@ -1,4 +1,5 @@
-﻿using OrderCore.DTO.Request;
+﻿using OrderBase.Entities;
+using OrderCore.DTO.Request;
 using OrderCore.DTO.Response;
 
 namespace OrderCore.Interfaces
@@ -8,6 +9,7 @@ namespace OrderCore.Interfaces
         public Task<CustomerResponseDTO> ValidateEmail(string email);
         public bool ValidatePassword(string password, string PasswordHash, string PasswordSalt);
         public Task<CustomerResponseDTO> Register(CustomerRequestDTO customer);
- 
+        public Task<CustomerResponseDTO> GetCustomerById(Guid id);
+
     }
 }

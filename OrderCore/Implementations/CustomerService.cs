@@ -5,7 +5,6 @@ using OrderCore.DTO.Request;
 using OrderCore.DTO.Response;
 using OrderCore.Interfaces;
 
-
 namespace OrderCore.Implementations
 {
     public class CustomerService :  ICustomerService
@@ -18,6 +17,13 @@ namespace OrderCore.Implementations
             _customerEFRepository = customerEFRepository;
             _unitOfWork = unitOfWork;
             _hasher = hasher;
+        }
+
+        public async Task<CustomerResponseDTO> GetCustomerById(Guid id)
+        {
+            var customer = await _customerEFRepository.GetCustomerById(id);
+            var customerResponseDTO = customer.Adapt<CustomerResponseDTO>();
+            return customerResponseDTO;
         }
 
         public async Task<CustomerResponseDTO> Register(CustomerRequestDTO addedCustomer)

@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using Mapster;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using OrderBase.Entities;
@@ -9,7 +8,6 @@ using OrderCore.Interfaces;
 using OrderManagementSystem.Responses;
 using OrderManagementSystem.ViewModels;
 using OrderManagementSystem.ViewModels.Request;
-using System.Collections.Generic;
 
 namespace OrderManagementSystem.Controllers
 {

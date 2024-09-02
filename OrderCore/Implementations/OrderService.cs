@@ -12,15 +12,15 @@ namespace OrderCore.Implementations
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IProductRepository _productRepository;
-        private readonly ICustomerRepository _customerRepository;
+        private readonly IProductService _productService;
+        private readonly ICustomerService _customerService;
         private const float tax = 0.14f;
-        public OrderService(IOrderRepository orderRepository,IUnitOfWork unitOfWork,IProductRepository productRepository, ICustomerRepository customerRepository)
+        public OrderService(IOrderRepository orderRepository,IUnitOfWork unitOfWork,IProductService productService, ICustomerService customerService)
         {
             _orderRepository = orderRepository;
             _unitOfWork = unitOfWork;
-            _productRepository = productRepository;
-            _customerRepository = customerRepository;
+            _productService = productService;
+            _customerService = customerService;
         }
         
         public async Task<OrderResponseDTO> AddOrder(OrderRequestDTO addedOrder)
@@ -48,7 +48,7 @@ namespace OrderCore.Implementations
             Double total = 0;
             foreach (OrderItemDTO item in orderItems)
             {
-                Product product = await _productRepository.GetProductById(item.ProductId);
+                var product = await _productService.GetProductById(item.ProductId);
                 product.Quantity-=item.Quantity;
                 item.Cost = (product.Amount * item.Quantity); 
                 total += item.Cost;
@@ -68,7 +68,7 @@ namespace OrderCore.Implementations
 
         public async Task<List<OrderRequestDTO>> GetOrdersByCustomerId(Guid id)
         {
-            var customer = _customerRepository.GetCustomerById(id);
+            var customer = _customerService.GetCustomerById(id);
             if (customer != null)
             {
                 var isDeleted = false;
