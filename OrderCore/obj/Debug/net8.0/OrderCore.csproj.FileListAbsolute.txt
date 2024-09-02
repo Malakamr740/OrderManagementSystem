@@ -1,0 +1,15 @@
+C:\Users\pc\source\repos\OrderManagementSystem\OrderCore\obj\Debug\net8.0\OrderCore.csproj.AssemblyReference.cache
+C:\Users\pc\source\repos\OrderManagementSystem\OrderCore\obj\Debug\net8.0\OrderCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pc\source\repos\OrderManagementSystem\OrderCore\obj\Debug\net8.0\OrderCore.AssemblyInfoInputs.cache
+C:\Users\pc\source\repos\OrderManagementSystem\OrderCore\obj\Debug\net8.0\OrderCore.AssemblyInfo.cs
+C:\Users\pc\source\repos\OrderManagementSystem\OrderCore\obj\Debug\net8.0\OrderCore.csproj.CoreCompileInputs.cache
+C:\Users\pc\source\repos\OrderManagementSystem\OrderCore\bin\Debug\net8.0\OrderCore.deps.json
+C:\Users\pc\source\repos\OrderManagementSystem\OrderCore\bin\Debug\net8.0\OrderCore.dll
+C:\Users\pc\source\repos\OrderManagementSystem\OrderCore\bin\Debug\net8.0\OrderCore.pdb
+C:\Users\pc\source\repos\OrderManagementSystem\OrderCore\bin\Debug\net8.0\OrderBase.dll
+C:\Users\pc\source\repos\OrderManagementSystem\OrderCore\bin\Debug\net8.0\OrderBase.pdb
+C:\Users\pc\source\repos\OrderManagementSystem\OrderCore\obj\Debug\net8.0\OrderCore.csproj.Up2Date
+C:\Users\pc\source\repos\OrderManagementSystem\OrderCore\obj\Debug\net8.0\OrderCore.dll
+C:\Users\pc\source\repos\OrderManagementSystem\OrderCore\obj\Debug\net8.0\refint\OrderCore.dll
+C:\Users\pc\source\repos\OrderManagementSystem\OrderCore\obj\Debug\net8.0\OrderCore.pdb
+C:\Users\pc\source\repos\OrderManagementSystem\OrderCore\obj\Debug\net8.0\ref\OrderCore.dll

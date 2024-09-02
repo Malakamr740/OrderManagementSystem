@@ -1,0 +1,14 @@
+C:\Users\pc\source\repos\OrderManagementSystem\OrderBase\obj\Debug\net8.0\OrderBase.csproj.AssemblyReference.cache
+C:\Users\pc\source\repos\OrderManagementSystem\OrderBase\obj\Debug\net8.0\OrderBase.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pc\source\repos\OrderManagementSystem\OrderBase\obj\Debug\net8.0\OrderBase.AssemblyInfoInputs.cache
+C:\Users\pc\source\repos\OrderManagementSystem\OrderBase\obj\Debug\net8.0\OrderBase.AssemblyInfo.cs
+C:\Users\pc\source\repos\OrderManagementSystem\OrderBase\obj\Debug\net8.0\OrderBase.csproj.CoreCompileInputs.cache
+C:\Users\pc\source\repos\OrderManagementSystem\OrderBase\bin\Debug\net8.0\OrderBase.deps.json
+C:\Users\pc\source\repos\OrderManagementSystem\OrderBase\bin\Debug\net8.0\OrderBase.runtimeconfig.json
+C:\Users\pc\source\repos\OrderManagementSystem\OrderBase\bin\Debug\net8.0\OrderBase.dll
+C:\Users\pc\source\repos\OrderManagementSystem\OrderBase\bin\Debug\net8.0\OrderBase.pdb
+C:\Users\pc\source\repos\OrderManagementSystem\OrderBase\obj\Debug\net8.0\OrderBase.dll
+C:\Users\pc\source\repos\OrderManagementSystem\OrderBase\obj\Debug\net8.0\refint\OrderBase.dll
+C:\Users\pc\source\repos\OrderManagementSystem\OrderBase\obj\Debug\net8.0\OrderBase.pdb
+C:\Users\pc\source\repos\OrderManagementSystem\OrderBase\obj\Debug\net8.0\OrderBase.genruntimeconfig.cache
+C:\Users\pc\source\repos\OrderManagementSystem\OrderBase\obj\Debug\net8.0\ref\OrderBase.dll
